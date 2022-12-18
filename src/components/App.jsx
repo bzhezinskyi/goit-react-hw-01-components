@@ -16,6 +16,7 @@ export const App = () => {
         stats={user.stats}
       />
       <Statistics stats={data} />
+      <FriendList />
     </>
   );
 };
