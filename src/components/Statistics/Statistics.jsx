@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
+import getRandomHexColor from 'getRandomHexColor';
 
-import getRandomHexColor from 'components/getRandomHexColor';
 import {
   Container,
   Title,
@@ -10,22 +10,20 @@ import {
   Percentage,
 } from './Statistics.styled';
 
-const StatItem = stats => {
-  return stats.map(({ id, label, percentage }) => {
-    return (
-      <Item key={id} style={{ backgroundColor: getRandomHexColor() }}>
-        <Label>{label}</Label>
-        <Percentage>{percentage + '%'}</Percentage>
-      </Item>
-    );
-  });
-};
-
-export const Statistics = ({ title = 'Upload stats', stats }) => {
+export const Statistics = ({ title, stats }) => {
   return (
     <Container>
-      <Title>{title}</Title>
-      <StatList>{StatItem(stats)}</StatList>
+      {title && <Title>{title}</Title>}
+      <StatList>
+        {stats.map(({ id, label, percentage }) => {
+          return (
+            <Item key={id} style={{ backgroundColor: getRandomHexColor() }}>
+              <Label>{label}</Label>
+              <Percentage>{percentage + '%'}</Percentage>
+            </Item>
+          );
+        })}
+      </StatList>
     </Container>
   );
 };

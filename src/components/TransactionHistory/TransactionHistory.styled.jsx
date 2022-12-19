@@ -19,3 +19,7 @@ export const Thead = styled.thead`
 export const Tbody = styled.tbody`
   background-color: #fff;
 `;
+export const Th = styled.th`
+  width: 200px;
+  padding: 5px;
+`;
